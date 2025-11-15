@@ -1,0 +1,30 @@
+fun listReader(list) {
+    fun inner(func) {
+        return func(list);
+    }
+    return inner;
+}
+
+fun printList(reader) {
+    fun inner(list) {
+        print("[");
+        if (len(list) > 0) {
+            print(list[0]);
+            for (var i = 1; i < len(list); i=i+1)
+                print(", ", list[i]);
+        }
+        println("]");
+    }
+    reader(inner);
+}
+
+fun readerGet(index) {
+    fun inner(list) {
+        return list[index];
+    }
+    return inner;
+}
+
+var vec = listReader([10, 20]);
+printList(vec);
+println(vec(readerGet(0)));
