@@ -11,7 +11,7 @@ typedef struct {
 
 Scanner scanner;
 
-#define CASE_RETURN_STR(val) case val: #val
+#define CASE_RETURN_STR(val) case val: return #val
 char* getTokenName(TokenType token) {
     switch (token) {
         CASE_RETURN_STR(TOKEN_LEFT_PAREN);
